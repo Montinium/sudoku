@@ -1,0 +1,135 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+#user-info {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+/* Уніфіковані блоки */
+.players-info,
+#messages,
+.no-game-message {
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.players-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.player-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.player-rank {
+    width: 30px;
+    font-weight: bold;
+    color: #6c757d;
+}
+
+.player-name {
+    flex: 1;
+    font-weight: 500;
+    color: #212529;
+}
+
+.player-score {
+    font-weight: bold;
+    color: #28a745;
+    padding: 4px 8px;
+    background-color: #e8f5e9;
+    border-radius: 4px;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    background-color: #333;
+    border: 3px solid #333;
+    border-radius: 8px;
+    max-width: 800px;
+    width: 100%;
+    overflow: hidden; /* щоб рамки не виступали */
+}
+
+.cell {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    font-size: 2em;
+    cursor: pointer;
+    min-height: 40px;
+    box-sizing: border-box;
+    border: 1px solid #ccc; /* стандартна тонка сітка */
+    transition: background-color 0.2s;
+}
+
+/* Товсті вертикальні лінії після 3, 6, 9 стовпця */
+.cell:nth-child(3n) {
+    border-right: 3px solid #333;
+}
+
+/* Товсті горизонтальні лінії після 3, 6, 9 рядка */
+.cell:nth-child(n+19):nth-child(-n+27),
+.cell:nth-child(n+46):nth-child(-n+54),
+.cell:nth-child(n+73) {
+    border-bottom: 3px solid #333;
+}
+
+/* Товсті ліві і верхні межі першого блоку */
+.cell:nth-child(1),
+.cell:nth-child(10),
+.cell:nth-child(19),
+.cell:nth-child(28),
+.cell:nth-child(37),
+.cell:nth-child(46),
+.cell:nth-child(55),
+.cell:nth-child(64),
+.cell:nth-child(73) {
+    border-left: 3px solid #333;
+}
+.cell:nth-child(-n+9) {
+    border-top: 3px solid #333;
+}
+
+button {
+    margin: 15px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+button:hover {
+    background-color: #45a049;
+}
